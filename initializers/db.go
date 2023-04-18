@@ -2,6 +2,7 @@ package initializers
 
 import (
 	"fmt"
+	"mvc/models"
 	"os"
 
 	"gorm.io/driver/postgres"
@@ -20,4 +21,8 @@ func ConnectDB() {
 	} else {
 		fmt.Println("Successfully connected to database")
 	}
+}
+
+func SyncDB() {
+	DB.AutoMigrate(&models.Post{}) // Create the Table
 }
