@@ -1,11 +1,12 @@
 package main
 
 import (
-	"mvc/controllers"
 	"mvc/initializers"
+	"mvc/middleware"
 	"os"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/template/html"
 )
 
 func init() {
@@ -16,11 +17,20 @@ func init() {
 
 func main() {
 
+	//Load Templates
+	engine := html.New("./views", ".tmpl")
+
 	//Setup
-	app := fiber.New()
+	app := fiber.New(fiber.Config{
+		Views: engine,
+	})
+
+	//Configure
+	app.Static("/", "./public")
+	app.Use(middleware.RequireAuth)
 
 	//Routes
-	app.Get("/", controllers.PostsIndex)
+	Routes(app)
 
 	//Start
 	app.Listen(":" + os.Getenv("PORT"))

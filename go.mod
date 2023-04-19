@@ -4,10 +4,11 @@ go 1.20
 
 require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
-	github.com/fatih/color v1.9.0 // indirect
-	github.com/fsnotify/fsnotify v1.4.9 // indirect
+	github.com/fatih/color v1.13.0 // indirect
+	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/githubnemo/CompileDaemon v1.4.0 // indirect
 	github.com/gofiber/fiber/v2 v2.44.0 // indirect
+	github.com/gofiber/template v1.8.1 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20221227161230-091c0ba34f0a // indirect
