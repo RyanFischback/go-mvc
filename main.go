@@ -1,6 +1,7 @@
 package main
 
 import (
+	"mvc/controllers"
 	"mvc/initializers"
 	"mvc/middleware"
 	"os"
@@ -30,7 +31,8 @@ func main() {
 	app.Use(middleware.RequireAuth)
 
 	//Routes
-	Routes(app)
+	app.Get("/", controllers.PostsIndex)
+	//app.Get("/about", controllers.PostsIndex)
 
 	//Start
 	app.Listen(":" + os.Getenv("PORT"))
